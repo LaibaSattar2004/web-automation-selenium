@@ -1,0 +1,12 @@
+@bdd
+Feature: SauceDemo Login and Error handling
+
+  Scenario: Login with valid credentials
+    Given I open SauceDemo
+    When I login as "standard_user" with password "secret_sauce"
+    Then I should see the dashboard title "Products"
+
+  Scenario: Login with invalid password
+    Given I open SauceDemo
+    When I login as "standard_user" with password "wrong_pass"
+    Then I should see an error containing "Epic sadface"
